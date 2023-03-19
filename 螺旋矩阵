@@ -1,1 +1,33 @@
 使用四个循环
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>> res(n , vector<int>(n, 0));
+        int startx = 0; int starty = 0; int offset = 0; 
+        int loop = n/2; int count = 1;
+        int i = 0; int j = 0; int mid = n/2;
+
+        while(loop--){
+            for(i = startx, j = starty; j < n-offset-1; j++){
+                res[i][j] = (count++);
+            }
+            for(; i < n-offset-1; i++){
+                res[i][j] = (count++);
+            }
+            for(; j > starty; j--){
+                res[i][j] = (count++);
+            }
+            for(; i > startx; i--){
+                res[i][j] = (count++);
+            }
+            startx++;
+            starty++;
+            offset++;
+        }
+        if(n%2 == 1){
+            res[mid][mid] = (count++);
+        }
+        return res;
+
+    }
+};
