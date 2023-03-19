@@ -1,4 +1,5 @@
 leetcode  使用四个循环
+因为是左闭右开区间，若n是奇数，最中间的位置在四个循环中不会被填充上，需要单独填充
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
